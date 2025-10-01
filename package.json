@@ -1,0 +1,31 @@
+{
+  "name": "kuzco-telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for Kuzco laptop shop",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "laptop",
+    "shop",
+    "kuzco"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "telegraf": "^4.15.6",
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.7.0",
+    "node-cron": "^3.0.3",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
