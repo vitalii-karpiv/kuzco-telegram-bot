@@ -60,6 +60,20 @@ class LaptopGroupService {
   isLoaded() {
     return this.loaded;
   }
+
+  /**
+   * Get images for a laptop group
+   * @param {string} groupId - Laptop group ID
+   * @returns {Promise<Array>} Array of image objects with id and s3Url
+   */
+  async getGroupImages(groupId) {
+    try {
+      return await this.apiClient.getGroupImages(groupId);
+    } catch (error) {
+      console.error('Error loading group images:', error);
+      return [];
+    }
+  }
 }
 
 module.exports = LaptopGroupService;

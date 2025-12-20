@@ -42,6 +42,37 @@ class ApiClient {
       }
     }
   }
+
+  /**
+   * Get images for a laptop group
+   * @param {string} groupId - Laptop group ID
+   * @returns {Promise<Array>} Array of image objects with id and s3Url
+   */
+  async getGroupImages(groupId) {
+    try {
+      const response = await axios.post(
+        `${this.baseUrl}/image/list`,
+        { groupId },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      return response.data || [];
+    } catch (error) {
+      if (error.response) {
+        throw new Error(
+          `API Error: ${error.response.status} - ${error.response.statusText}`
+        );
+      } else if (error.request) {
+        throw new Error('Network Error: No response from server');
+      } else {
+        throw new Error(`Request Error: ${error.message}`);
+      }
+    }
+  }
 }
 
 module.exports = ApiClient;
